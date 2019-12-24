@@ -111,11 +111,6 @@ goto(240,-130)
 goto(230,-120)
 goto(220,-140)
 
-# pu()
-# goto(220,-160)
-# pd()
-# dot(20)
-
 onclick(write_message(-200,180))
 
 mainloop()
