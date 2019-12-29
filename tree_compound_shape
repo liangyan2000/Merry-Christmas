@@ -1,0 +1,23 @@
+# draw a christmas tree as a compound shape
+
+from turtle import *
+
+lt(90) #direction up
+b = Shape("compound")
+
+low = ((-150,-130),(150,-130),(90,-40),(-90,-40))
+b.addcomponent(low, "dark green", "black")
+
+mid = ((-110,-40),(110,-40),(50,50),(-50,50))
+b.addcomponent(mid, "dark green", "black")
+
+high = ((-70,50),(70,50),(0,150))
+b.addcomponent(high, "dark green", "black")
+
+trunk = ((-30,-180),(30,-180),(30,-130),(-30,-130))
+b.addcomponent(trunk, "saddle brown", "black")
+
+register_shape("tree",b)
+shape("tree")
+
+done()
