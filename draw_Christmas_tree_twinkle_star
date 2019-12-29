@@ -1,0 +1,91 @@
+from turtle import *
+
+def draw_tree(a, b, c, d, color):
+    ht()
+    pu()
+    pen(pencolor='black', pensize=4, fillcolor=color)
+    setpos(a)
+    pd()
+    begin_fill()
+    goto(b)
+    goto(c)
+    goto(d)
+    goto(a)
+    end_fill()
+
+def draw_ball(center, color):
+    speed(0)
+    pen(pencolor='black',outline=4,fillcolor=color)
+    pu()
+    setpos(center)
+    pd()
+    begin_fill()
+    circle(15)
+    end_fill()
+    
+def draw_top_star(fill):
+    pu()
+    goto(-30,160)
+    pensize(3)
+    color('orange',fill)
+    pd()
+    begin_fill()
+    for i in range (5):
+        fd(50)
+        rt(144)
+    end_fill()
+
+    
+draw_tree((-150,-130),(150,-130),(90,-40),(-90,-40),'dark green')
+draw_tree((-110,-40),(110,-40),(50,50),(-50,50),'dark green')
+draw_tree((-70,50),(70,50),(0,150),(-70,50),'dark green')
+draw_tree((-30,-180),(30,-180),(30,-130),(-30,-130),'saddle brown')
+
+centers=[(-110,-130), (110,-130), (-50,-90), 
+        (40,-80), (-30,-40), (90,-20),(-70,0),(40,60)]
+colors=["yellow", "purple", "white", "pink", "yellow", 
+        "white", "red", "blue"]
+for i in range(8):
+    draw_ball(centers[i], colors[i])
+
+
+# gift box
+pu()
+goto(200,-180)
+pd()
+color('red','orange')
+begin_fill()
+for i in range(4):
+    fd(40)
+    lt(90)
+end_fill()
+pu()
+goto(220,-140)
+color('red')
+pd()
+goto(200,-130)
+goto(210,-120)
+goto(220,-140)
+goto(240,-130)
+goto(230,-120)
+goto(220,-140)
+
+# star twinkle
+for i in range(5):
+    draw_top_star('yellow')
+    delay(20)
+    draw_top_star('orange')
+
+# write message
+def write_message(x,y):
+    pu()
+    goto(-200,180)
+    pd()
+    pencolor('red')
+    write("Merry Christmas!", font=['vladimir script', 50, 'bold'])
+
+  
+w=Screen()
+w.onclick(write_message)
+
+mainloop()
